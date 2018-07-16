@@ -1,0 +1,12 @@
+.view-field {
+    margin: auto;
+    position: relative;
+    width: 970px;
+    height: 100%;
+    border: 1px groove black;
+}
+
+.view-filed-container {
+    width: 100%;
+    height: 100%;
+}

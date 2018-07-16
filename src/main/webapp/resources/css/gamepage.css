@@ -1,0 +1,260 @@
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: "Motiva Sans", Sans-serif;
+    background-color: rgb(48, 51, 74);
+}
+
+.global_header {
+    width: 100%;
+    background: #171a21;
+}
+
+.menu_content {
+    position: relative;
+    width: 940px;
+    height: 104px;
+    margin: 0px auto;
+    z-index: 402;
+    font-weight: normal;
+    font-size: 14px;
+    background-position: center top;
+    min-width: 940px;
+}
+
+.menu_items {
+    position: absolute;
+    left: 200px;
+    height: 104px;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.menu_objects {
+    display: block;
+    position: relative;
+    padding-top: 45px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    line-height: 16px;
+    float: left;
+    font-size: 14px;
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.game_container {
+    width: 100%;
+    height: 600px;
+    background-image: url("../images/witcherBack.jpg");
+    background-size: cover;
+
+}
+
+.game_container_2 {
+    width: 970px;
+    height: 520px;
+    padding: 5px;
+    margin: auto;
+    color: white;
+    background-color: rgba(35,36,47,0.7);
+}
+
+.game_screens_actions {
+    height: 520px;
+
+    display: inline-block;
+}
+
+.game_screens {
+    width: 70%;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+
+.main_screen {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    width: 642px;
+    height: 353px;
+}
+
+.screen_menu {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    width: 642px;
+    height: 100px;
+    text-align : center
+}
+
+.choose_image {
+    position: relative;
+    top: 5px;
+    width: 190px;
+    height: 100px;
+    display: inline-block;
+}
+
+.main_screen img {
+    width:100%;
+}
+
+.choose_image img {
+    width: 100%;
+}
+
+.game_info {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    margin-left: 20px;
+    color: #b8b6b4;
+}
+
+.image_element {
+    margin-top: 10px;
+}
+
+.image_element_cover {
+    border: 1px solid white;
+    margin-top: 10px;
+}
+
+.game_info_picture {
+    width: 100%;
+    height: 28%;
+    position: relative;
+    top: 30px;
+}
+
+.image_element_2 {
+    width: 100%;
+}
+
+.name {
+    text-transform: uppercase;
+    color: whitesmoke;
+}
+
+#description {
+    font-size: 14px;
+    display: inline;
+}
+
+.game_info_headers {
+    color:whitesmoke;
+    display: inline;
+}
+
+.game_info_body {
+    display: inline;
+}
+
+.tags_container {
+    width: 100%;
+    height: 5%;
+    text-align: center;
+}
+
+.tags_list {
+    text-transform: lowercase;
+    text-decoration: none;
+    color: #9A9ECB;
+    background-color: rgba(92, 97, 147, 0.5);
+    border-radius: 3px;
+}
+
+.description_div_container, .requirements_container {
+    width: 100%;
+    height: 510px;
+    background-color: rgb(48, 51, 74);
+}
+
+.description_div, .requirements {
+    width: 970px;
+    height: 350px;
+    background-color: rgba(35,36,47,0.7);
+    margin: auto;
+    text-align: center;
+}
+
+.game_description_header {
+    color: #b8b6b4;
+    text-align: center;
+    margin: auto;
+}
+
+.minimum_req_container, .recommended_req_container {
+    display: inline-block;
+    width: 45%;
+    height: 300px;
+    float: left;
+    color: #b8b6b4;
+}
+
+.min_req_list_container, .min_req_list, .rec_req_list_container, .rec_req_list {
+    list-style-type: none;
+    margin-left: 0px;
+    line-height: 18px;
+}
+
+.recommended_req_container {
+    float: right;
+    margin-right: 60px;
+}
+
+strong {
+    color: #b8b6b4;
+}
+
+.min_req_list_container {
+    text-align: right;
+}
+
+.rec_req_list_container {
+    text-align: left;
+}
+
+.os {
+    color: #b8b6b4;
+    display: inline-block;
+    height: 22px;
+    width: 100px;
+}
+
+
+.os_click {
+    background-color: #191A2E;
+    border-radius: 2px;
+    color: #b8b6b4;
+}
+
+.os_container {
+    background: -webkit-linear-gradient( left, rgba(48,51,74,0.7) 0%,rgba(48,51,72,0.1) 100%);
+    height: 22px;
+}
+
+h2 {
+    background: -webkit-linear-gradient( left, rgba(48,51,74,0.7) 0%,rgba(48,51,72,0.1) 100%);
+}
+
+.win_container {
+    width: 970px;
+    height: 300px;
+}
+
+.mac_container, .linux_container {
+    display: none;
+}
+

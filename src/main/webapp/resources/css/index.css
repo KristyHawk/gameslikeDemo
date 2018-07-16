@@ -1,0 +1,143 @@
+.container {
+    background-color: #34364C;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: "Motiva Sans", Sans-serif;
+}
+.menu_content {
+    position: relative;
+    width: 940px;
+    height: 104px;
+    margin: 0px auto;
+    z-index: 402;
+    font-weight: normal;
+    font-size: 14px;
+    background-position: center top;
+    min-width: 940px;
+}
+#global_header {
+    width: 100%;
+    background: #171a21;
+}
+.menu_items {
+    position: absolute;
+    left: 200px;
+    height: 104px;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+.menu_objects {
+    display: block;
+    position: relative;
+    padding-top: 45px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    line-height: 16px;
+    float: left;
+    font-size: 14px;
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.menu_objects_hover {
+    color: white;
+}
+
+.games_list_body {
+    text-align : center
+}
+
+.popular_games_area {
+    background-color: #23242F;
+    width: 970px;
+    height: 520px;
+    padding: 5px;
+    margin: auto;
+}
+
+.left_element {
+    float: left;
+    width: 642px;
+    height: 353px;
+}
+
+h2 {
+    color: white;
+}
+.first_right_element {
+    position: relative;
+    height: 180px;
+    float: right;
+    width: 323px;
+}
+
+.second_right_element {
+    position: relative;
+    height: 173px;
+    float: right;
+    width: 323px;
+}
+
+.game_list {
+    height: 483px;
+}
+
+.game_objects_hover {
+    border: 2px outset white;
+}
+
+.game_objects {
+    width: 100%;
+}
+
+.three_left_large_elements {
+    height: 363px;
+}
+
+.other_popular_games {
+    position: relative;
+    height: 110px;
+    left: 62px;
+}
+
+.small_game_objects {
+    width: 194px;
+    height:106px;
+    float: left;
+}
+
+#left_arrow, #right_arrow, #left_arrow_2, #right_arrow_2 {
+    width: 35px;
+    height: 106px;
+}
+
+.other_popular_games_changed {
+    display: none;
+    position: relative;
+    height: 110px;
+    left: 62px;
+}
+
+.other_popular_games_changed_hover{
+    display: block;
+}
+
+.popular_game_list {
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.popular_game_list_hover {
+    color: white;
+}
+
+.small_game_objects_2 {
+    width: 100%;
+}
+
