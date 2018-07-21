@@ -1,11 +1,17 @@
 package com.gameslike.demo.shared.service.impl;
 
+import com.gameslike.demo.server.repositories.repository.HTMLGeneratorVariableBulletedListRepository;
 import com.gameslike.demo.server.repositories.repository.HTMLGeneratorVariableRepository;
+import com.gameslike.demo.shared.dto.HTMLGenerator.HTMLGeneratorVariableBulletedListDTO;
 import com.gameslike.demo.shared.dto.HTMLGenerator.HTMLGeneratorVariableDTO;
+import com.gameslike.demo.shared.service.services.HTMLGeneratorVariableBulletedListService;
 import com.gameslike.demo.shared.service.services.HTMLGeneratorVariableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -13,6 +19,9 @@ public class HTMLGeneratorVariableServiceImpl implements HTMLGeneratorVariableSe
 
     @Autowired
     HTMLGeneratorVariableRepository htmlRepository;
+
+    @Autowired
+    HTMLGeneratorVariableBulletedListService htmlGeneratorVariableBulletedListService;
 
 
     @Override
@@ -31,6 +40,7 @@ public class HTMLGeneratorVariableServiceImpl implements HTMLGeneratorVariableSe
     }
 
     @Override
+    @Transactional
     public void save(HTMLGeneratorVariableDTO htmlGeneratorVariableDTO) {
         htmlRepository.save(htmlGeneratorVariableDTO);
     }
@@ -64,7 +74,16 @@ public class HTMLGeneratorVariableServiceImpl implements HTMLGeneratorVariableSe
     }
 
     @Override
-    public List<HTMLGeneratorVariableDTO> findByGameId(Integer id) {
+    public HTMLGeneratorVariableDTO findByGameId(Integer id) {
         return htmlRepository.findByGame_Id(id);
+    }
+
+
+    @Override
+    @Transactional
+    public void saveHTMLGeneratorVariableDTOWithParameter(String[] addedItemsList, HTMLGeneratorVariableDTO dtoo) {
+
+        Arrays.stream(addedItemsList).map(v -> new HTMLGeneratorVariableBulletedListDTO(addedItemsList[0], dtoo)).forEach(v -> htmlGeneratorVariableBulletedListService.save(v));
+
     }
 }

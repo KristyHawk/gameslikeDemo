@@ -38,7 +38,7 @@ public class GameServiceImpl implements GameService{
     @Override
     @Transactional
     public void save(GameDTO gameDTO) {
-
+        gameRepository.save(gameDTO);
     }
 
     @Override

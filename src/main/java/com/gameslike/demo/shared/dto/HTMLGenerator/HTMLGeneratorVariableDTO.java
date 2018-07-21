@@ -1,8 +1,10 @@
 package com.gameslike.demo.shared.dto.HTMLGenerator;
 
+import com.gameslike.demo.server.util.RandomUtil;
 import com.gameslike.demo.shared.dto.GameDTO;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "HTML_GENERATOR", schema = "DEV")
@@ -17,17 +19,29 @@ public class HTMLGeneratorVariableDTO {
     @Column(name = "TYPE", length = 50)
     private String typed;
 
-    @Column(name = "CONTENT", nullable = false, length = 10000)
+    @Column(name = "CONTENT", length = 10000)
     private String content; //could be also a picture url in my file system
 
-    @OneToMany(mappedBy = "htmlGeneratorVariableDTO")
-    private List<HTMLGeneratorVariableBulletedListDTO> bulletedList; //если контент = bulleted_List
+    @OneToMany(mappedBy = "dto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<HTMLGeneratorVariableBulletedListDTO> list = new ArrayList<>();
 
     @Column(name = "POSITION_ON_PAGE")
     private Integer position;
 
     @ManyToOne
     private GameDTO game;
+
+    public List<HTMLGeneratorVariableBulletedListDTO> getList() {
+        return list;
+    }
+
+    public void setList(List<HTMLGeneratorVariableBulletedListDTO> list) {
+        this.list = list;
+    }
+
+    public HTMLGeneratorVariableDTO() {
+        this.id = 1 + (int) (Math.random() * 10000);
+    }
 
     public Integer getPosition() {
         return position;
@@ -69,11 +83,4 @@ public class HTMLGeneratorVariableDTO {
         this.content = content;
     }
 
-    public List<HTMLGeneratorVariableBulletedListDTO> getBulletedList() {
-        return bulletedList;
-    }
-
-    public void setBulletedList(List<HTMLGeneratorVariableBulletedListDTO> bulletedList) {
-        this.bulletedList = bulletedList;
-    }
 }

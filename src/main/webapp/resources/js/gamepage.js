@@ -53,4 +53,27 @@ $(document).ready(function() {
         $(this).css("color", "white");
     });
 
+    $(".scroll-down-click").bind("click", function () {
+        if($('.scroll-down-click').text() === 'Показать полностью') {
+            $('#descriptionDiv').removeClass('description_div');
+            $('#descriptionDiv').addClass('description_div_expanded');
+            $('#gameDetailedDescription').removeClass('game-detailed-description');
+            $('#gameDetailedDescription').addClass('game_detailed_description_expanded');
+            $('.scroll-down-click').text("Скрыть");
+        } else {
+            $('#descriptionDiv').removeClass('description_div_expanded');
+            $('#descriptionDiv').addClass('description_div');
+            $('#gameDetailedDescription').removeClass('game_detailed_description_expanded');
+            $('#gameDetailedDescription').addClass('game-detailed-description');
+            $('.scroll-down-click').text("Показать полностью");
+        }
+    });
+
+    $(".scroll-down-click").hover(function () {
+       $(".scroll-down-click").toggleClass('scroll-down-click-hover')
+    });
+
+
+
+
 });

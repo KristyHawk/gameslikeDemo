@@ -16,8 +16,18 @@ public class HTMLGeneratorVariableBulletedListDTO {
     @Column(name = "BULLETED_STRING", nullable = false, length = 5000)
     private String bulletedString;
 
-    @ManyToOne
-    private HTMLGeneratorVariableDTO htmlGeneratorVariableDTO;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dto_id", nullable = false)
+    private HTMLGeneratorVariableDTO dto;
+
+    public HTMLGeneratorVariableBulletedListDTO(String bulletedString, HTMLGeneratorVariableDTO dto) {
+        this.bulletedString = bulletedString;
+        this.dto = dto;
+    }
+
+    public HTMLGeneratorVariableBulletedListDTO() {
+        this.id = 1 + (int) (Math.random() * 10000);
+    }
 
     public Integer getId() {
         return id;
@@ -35,11 +45,11 @@ public class HTMLGeneratorVariableBulletedListDTO {
         this.bulletedString = bulletedString;
     }
 
-    public HTMLGeneratorVariableDTO getHtmlGeneratorVariableDTO() {
-        return htmlGeneratorVariableDTO;
+    public HTMLGeneratorVariableDTO getDto() {
+        return dto;
     }
 
-    public void setHtmlGeneratorVariableDTO(HTMLGeneratorVariableDTO htmlGeneratorVariableDTO) {
-        this.htmlGeneratorVariableDTO = htmlGeneratorVariableDTO;
+    public void setDto(HTMLGeneratorVariableDTO dto) {
+        this.dto = dto;
     }
 }

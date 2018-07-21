@@ -10,5 +10,6 @@ import java.util.List;
 public interface HTMLGeneratorVariableRepository extends JpaRepository<HTMLGeneratorVariableDTO, Integer> {
 
     void deleteAll();
-    List<HTMLGeneratorVariableDTO> findByGame_Id(Integer id);
+    HTMLGeneratorVariableDTO findByGame_Id(Integer id);
+
 }

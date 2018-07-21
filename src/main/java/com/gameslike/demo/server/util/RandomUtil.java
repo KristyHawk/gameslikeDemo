@@ -10,7 +10,7 @@ public class RandomUtil {
     HTMLGeneratorVariableService htmlGeneratorVariableService;
 
     public int generateRandomId() {
-        int id = 1 + (int) (Math.random() * 70);
+        int id = 1 + (int) (Math.random() * 10000);
         if(htmlGeneratorVariableService.findById(id) != null) {
             generateRandomId();
         }

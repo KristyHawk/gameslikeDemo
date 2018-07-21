@@ -72,12 +72,14 @@
             </div>
         </div>
         <div class = "description_div_container">
-            <div class = description_div>
+            <div class = description_div id = "descriptionDiv">
                 <br/>
                 <h2 class="game_description_header">ОПИСАНИЕ ИГРЫ</h2>
-                <p></p>
+                <div class = "game-detailed-description" id = "gameDetailedDescription">${gameDTO.detailedDescription}</div>
+                <p class = "scroll-down-click">Показать полностью</p>
             </div>
         </div>
+        <div class = "br"></div>
         <div class = "requirements_container">
             <div class = "requirements">
                 <br/>

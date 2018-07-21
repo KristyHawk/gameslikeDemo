@@ -1,2 +1,1 @@
-# gameslikeDemo
-Практика
+# gameslike

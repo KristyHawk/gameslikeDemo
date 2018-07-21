@@ -1,19 +1,14 @@
 package com.gameslike.demo.server.controller;
 
 import com.gameslike.demo.shared.dto.GameDTO;
-import com.gameslike.demo.shared.dto.HTMLGenerator.HTMLGeneratorVariableDTO;
+import com.gameslike.demo.shared.dto.HTMLDescription.HTMLDescriptionDTO;
 import com.gameslike.demo.shared.service.services.GameService;
-import com.gameslike.demo.shared.service.services.HTMLGeneratorVariableService;
-import com.gameslike.demo.shared.web.HTMLGeneratorVariableResult;
+import com.gameslike.demo.shared.service.services.HTMLDescriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.jws.WebParam;
-import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -24,7 +19,7 @@ public class AdminController {
     private GameService gameService;
 
     @Autowired
-    private HTMLGeneratorVariableService htmlGeneratorVariableService;
+    private HTMLDescriptionService htmlDescriptionService;
 
     @RequestMapping(value = "/gamelist", method = RequestMethod.GET)
     public ModelAndView showAdminPage() {
@@ -38,23 +33,26 @@ public class AdminController {
     }
 
     @RequestMapping(value = "addDescription/{id}", method = RequestMethod.GET)
-    public ModelAndView addDDescription(@PathVariable("id") Integer id) {
+    public ModelAndView addDDescription(@PathVariable("id") Integer gameId) {
         ModelAndView modelAndView = new ModelAndView();
-        HTMLGeneratorVariableDTO result = new HTMLGeneratorVariableDTO();
+        GameDTO result = gameService.findById(gameId);
         modelAndView.addObject("result", result);
-
         modelAndView.setViewName("adddescription");
         return modelAndView;
     }
 
     @RequestMapping(value = "addDescription/{id}/saveDescription", method = RequestMethod.POST)
-    public ModelAndView saveDescription(@PathVariable("id") Integer id, @ModelAttribute HTMLGeneratorVariableDTO dto) {
-        dto.setGame(gameService.findById(id));
-        htmlGeneratorVariableService.save(dto);
+    public ModelAndView saveDescription(@PathVariable("id") Integer gameId, @ModelAttribute GameDTO dto) {
+        GameDTO current = gameService.findById(gameId);
+        current.setDetailedDescription(dto.getDetailedDescription());
+        gameService.save(current);
+
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("result", new HTMLGeneratorVariableDTO());
+        modelAndView.addObject("result", current);
         modelAndView.setViewName("adddescription");
         return modelAndView;
     }
+
+
 
 }

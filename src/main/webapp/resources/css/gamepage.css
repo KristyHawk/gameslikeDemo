@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(48, 51, 74);
+}
+
 .container {
     position: absolute;
     top: 0;
@@ -5,7 +9,6 @@
     bottom: 0;
     left: 0;
     font-family: "Motiva Sans", Sans-serif;
-    background-color: rgb(48, 51, 74);
 }
 
 .global_header {
@@ -175,10 +178,11 @@
     border-radius: 3px;
 }
 
-.description_div_container, .requirements_container {
+.requirements_container {
     width: 100%;
     height: 510px;
     background-color: rgb(48, 51, 74);
+    position: relative;
 }
 
 .description_div, .requirements {
@@ -190,7 +194,7 @@
 }
 
 .game_description_header {
-    color: #b8b6b4;
+    color: white;
     text-align: center;
     margin: auto;
 }
@@ -257,4 +261,66 @@ h2 {
 .mac_container, .linux_container {
     display: none;
 }
+
+.game-detailed-description {
+    color: #b8b6b4;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: left;
+    max-height: 220px;
+    overflow: hidden;
+}
+
+.game_detailed_description_expanded {
+    color: #b8b6b4;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.br {
+    background-color: rgb(48, 51, 74);
+    height: 30px;
+    width: 100%;
+}
+
+.description_div_container {
+    width: 100%;
+    background-color: rgb(48, 51, 74);
+    position: relative;
+}
+
+.description_div_expanded {
+    width: 970px;
+    background-color: rgba(35,36,47,0.7);
+    margin: auto;
+    text-align: center;
+}
+
+.scroll-down {
+    height: 30px;
+    width: 100%;
+    background-image: url("../images/underline_gradient.png");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    float: left;
+}
+
+.scroll-down-click {
+    height: 30px;
+    color: #b8b6b4;
+    text-align: left;
+    margin-left: 20px;
+    background-image: url("../images/underline_gradient.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+.scroll-down-click-hover {
+    color: white;
+}
+
 

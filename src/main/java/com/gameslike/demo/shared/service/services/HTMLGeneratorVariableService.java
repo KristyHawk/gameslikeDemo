@@ -1,5 +1,6 @@
 package com.gameslike.demo.shared.service.services;
 
+import com.gameslike.demo.shared.dto.HTMLGenerator.HTMLGeneratorVariableBulletedListDTO;
 import com.gameslike.demo.shared.dto.HTMLGenerator.HTMLGeneratorVariableDTO;
 
 import java.util.List;
@@ -24,5 +25,7 @@ public interface HTMLGeneratorVariableService {
 
     String textToHTMLDiv();
 
-    List<HTMLGeneratorVariableDTO> findByGameId(Integer id);
+    HTMLGeneratorVariableDTO findByGameId(Integer id);
+
+    void saveHTMLGeneratorVariableDTOWithParameter(String[] addedItemsList, HTMLGeneratorVariableDTO dtoo);
 }

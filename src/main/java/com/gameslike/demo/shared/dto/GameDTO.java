@@ -1,6 +1,6 @@
 package com.gameslike.demo.shared.dto;
 
-import com.gameslike.demo.shared.dto.HTMLGenerator.HTMLGeneratorVariableDTO;
+import com.gameslike.demo.shared.dto.HTMLDescription.HTMLDescriptionDTO;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -81,15 +81,15 @@ public class GameDTO {
     @OneToOne
     private RecommendedSystemRequirementsLinuxDTO recLinSR;
 
-    @OneToMany(mappedBy = "game")
-    private List<HTMLGeneratorVariableDTO> htmlDTOList;
+    @OneToOne
+    private HTMLDescriptionDTO htmlDescription;
 
-    public List<HTMLGeneratorVariableDTO> getHtmlDTOList() {
-        return htmlDTOList;
+    public HTMLDescriptionDTO getHtmlDescription() {
+        return htmlDescription;
     }
 
-    public void setHtmlDTOList(List<HTMLGeneratorVariableDTO> htmlDTOList) {
-        this.htmlDTOList = htmlDTOList;
+    public void setHtmlDescription(HTMLDescriptionDTO htmlDescription) {
+        this.htmlDescription = htmlDescription;
     }
 
     public MinimumSystemRequirementsMacDTO getMinMacSR() {
