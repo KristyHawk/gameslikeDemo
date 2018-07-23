@@ -2,6 +2,7 @@ package com.gameslike.demo.shared.service.impl;
 
 import com.gameslike.demo.server.repositories.repository.GameRepository;
 import com.gameslike.demo.shared.dto.GameDTO;
+import com.gameslike.demo.shared.dto.TagDTO;
 import com.gameslike.demo.shared.service.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,4 +75,20 @@ public class GameServiceImpl implements GameService{
         Collections.reverse(sortedList);
         return sortedList;
     }
+
+    @Override
+    public List<GameDTO> findAllAndSortByReleaseDate() {
+        List<GameDTO> sortedList = findAll();
+        sortedList.sort(new Comparator<GameDTO>() {
+            @Override
+            public int compare(GameDTO o1, GameDTO o2) {
+                if(o1.getReleaseDate().before(o2.getReleaseDate())) return -1;
+                else if(o1.getReleaseDate().after(o2.getReleaseDate())) return 1;
+                else return 0;
+            }
+        });
+        Collections.reverse(sortedList);
+        return sortedList;
+    }
+
 }

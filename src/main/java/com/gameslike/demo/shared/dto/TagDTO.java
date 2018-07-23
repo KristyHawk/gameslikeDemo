@@ -1,8 +1,10 @@
 package com.gameslike.demo.shared.dto;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@Table(name = "TAGS", schema = "DETAILS")
+@Table(name = "TAGS", schema = "DEV")
 @Entity
 public class TagDTO {
 
@@ -14,8 +16,8 @@ public class TagDTO {
     @Column(name = "TAG", nullable = false, length = 50)
     private String tag;
 
-    @ManyToOne
-    private GameDTO game;
+    @ManyToMany(mappedBy = "tagsList")
+    private List<GameDTO> gameList = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -33,11 +35,11 @@ public class TagDTO {
         this.tag = tag;
     }
 
-    public GameDTO getGame() {
-        return game;
+    public List<GameDTO> getGameList() {
+        return gameList;
     }
 
-    public void setGame(GameDTO game) {
-        this.game = game;
+    public void setGameList(List<GameDTO> gameList) {
+        this.gameList = gameList;
     }
 }

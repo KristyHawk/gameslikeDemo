@@ -1,0 +1,119 @@
+body {
+    background-image: url("../images/login_background.jpg");
+    font-family: "Motiva Sans", Sans-serif;
+    margin: 0;
+}
+
+.authorize-window {
+    position: relative;
+    width: 40%;
+    background-color: rgba(35, 36, 47, 0.5);
+    color: #b8b6b4;
+    margin-top: 7%;
+    margin-left: 7%;
+    height: 50%;
+    float: left;
+}
+
+.authorize-window-next {
+    width: 50%;
+    height: 95%;
+    float: left;
+}
+
+.description_window {
+    position: relative;
+    width: 40%;
+    background-color: rgba(35, 36, 47, 0.5);
+    color: #b8b6b4;
+    margin-top: 7%;
+    margin-left: 5%;
+    height: 50%;
+    display: inline-block;
+}
+
+.login-div {
+    position: relative;
+    width: 82%;
+    height: 50%;
+    float: left;
+    margin-left: 10px;
+    border: 2px groove #454654;
+}
+
+.registration-div {
+    position: relative;
+    display: inline-block;
+    width: 42%;
+    float: right;
+    margin-right: 30px;
+}
+
+.current-account-p {
+    -webkit-margin-before: 0;
+    margin-left: 40px;
+}
+
+.enter {
+    margin-left: 40px;
+}
+
+.input-login {
+    width: 250px;
+    height: 30px;
+    border-radius: 10px 0 10px 0;
+    background-color: #23242F;
+    border: 1px inset #3F4155;
+    color: #b8b6b4;
+}
+
+.submit-btn {
+    border: 2px outset #171a21;
+    width: 100px;
+    height: 25px;
+    border-radius: 3px;
+    background-color: #454654;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.form-container {
+    margin-left: 30px;
+}
+
+.forgot-password {
+    margin-left: 20px;
+}
+
+.new-account {
+    border: 2px outset #171a21;
+    width: 150px;
+    height: 25px;
+    background-color: #454654;
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 70px;
+    margin-left: 80px;
+}
+
+.registration-span {
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.why-gameslike-header {
+    text-align: center;
+}
+
+.li_point {
+    margin-bottom: 15px;
+}
+
+.authorize-window-next {
+    border-right: 2px groove #454654;
+}
+
+

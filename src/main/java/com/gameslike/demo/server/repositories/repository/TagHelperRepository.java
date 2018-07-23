@@ -1,11 +1,11 @@
 package com.gameslike.demo.server.repositories.repository;
 
-import com.gameslike.demo.shared.dto.CommentDTO;
 import com.gameslike.demo.shared.dto.GameDTO;
 import com.gameslike.demo.shared.dto.TagDTO;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,9 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface TagRepository extends JpaRepository<TagDTO, Integer> {
+public interface TagHelperRepository extends PagingAndSortingRepository<TagDTO, Integer>{
 
-    @Query("SELECT t FROM TagDTO t JOIN t.gameList g WHERE g.id IN (?1)")
-    List<TagDTO> findByGameId(Integer gameId);
-
+    @Query("select t from TagDTO t join t.gameList g where g.id = :gameId")
+    List<TagDTO> findByGameId(Pageable pageable, @Param("gameId") Integer gameId);
 }

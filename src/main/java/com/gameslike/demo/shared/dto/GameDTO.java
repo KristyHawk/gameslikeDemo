@@ -3,6 +3,7 @@ package com.gameslike.demo.shared.dto;
 import com.gameslike.demo.shared.dto.HTMLDescription.HTMLDescriptionDTO;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,8 +40,13 @@ public class GameDTO {
     @OneToMany(mappedBy = "game")
     private List<LanguageDTO> languagesList;
 
-    @OneToMany(mappedBy = "game")
-    private List<TagDTO> tagsList;
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "GAME_TAG", schema = "DEV",
+            joinColumns = { @JoinColumn(name = "game_id", referencedColumnName="id") },
+            inverseJoinColumns = { @JoinColumn(name = "tag_id", referencedColumnName="id") }
+    )
+    private List<TagDTO> tagsList = new ArrayList<>();
 
     @Column(name = "RELEASE_DATE")
     private Date releaseDate;

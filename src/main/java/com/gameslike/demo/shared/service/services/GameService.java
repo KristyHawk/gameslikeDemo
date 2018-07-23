@@ -1,6 +1,7 @@
 package com.gameslike.demo.shared.service.services;
 
 import com.gameslike.demo.shared.dto.GameDTO;
+import com.gameslike.demo.shared.dto.TagDTO;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface GameService {
     void add(GameDTO gameDTO);
 
     List<GameDTO> findAllAndSortByPopularityRate();
+
+    List<GameDTO> findAllAndSortByReleaseDate();
 }

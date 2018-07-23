@@ -8,15 +8,14 @@ import java.util.List;
 public class UserDTO {
 
     @Id
-    @Column(name = "ID", nullable = false, length = 10)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "LOGIN", nullable = false, length = 50)
-    private String login;
+    @Column(name = "USERNAME", nullable = false, unique = true, length = 50)
+    private String username;
 
     @Column(name = "PASSWORD", nullable = false, length = 100)
     private String password;
+
+    @Column(name = "ENABLED", nullable = false, length = 5)
+    private boolean enabled;
 
     @Column(name = "FIRST_NAME", length = 50)
     private String firstName;
@@ -45,20 +44,40 @@ public class UserDTO {
     @OneToMany(mappedBy = "user") //TODO добавить в CommentDTO User user, который является владельцем коммента (потом можно сделать страницу со всеми комментами юзера, чтобы он мог переходить по всем постам, где он оставлял комменты)
     private List<CommentDTO> commentsList;
 
-    public Integer getId() {
-        return id;
+    @Column(name = "ROLE")
+    private String role;
+
+    public UserDTO() {
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public UserDTO(String username, String password, boolean enabled) {
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
     }
 
-    public String getLogin() {
-        return login;
+    public String getRole() {
+        return role;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getPassword() {

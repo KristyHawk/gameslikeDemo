@@ -1,5 +1,8 @@
+body {
+    background-image: url("../images/background_main.jpg");
+}
+
 .container {
-    background-color: #34364C;
     position: absolute;
     top: 0;
     right: 0;
@@ -53,17 +56,17 @@
 }
 
 .popular_games_area {
-    background-color: #23242F;
     width: 970px;
     height: 520px;
     padding: 5px;
     margin: auto;
+    background-color: rgba(35, 36, 47, 0.4);
 }
 
 .left_element {
     float: left;
     width: 642px;
-    height: 353px;
+    height: 361px;
 }
 
 h2 {
@@ -88,7 +91,7 @@ h2 {
 }
 
 .game_objects_hover {
-    border: 2px outset white;
+    -webkit-filter: brightness(125%);
 }
 
 .game_objects {
@@ -99,31 +102,33 @@ h2 {
     height: 363px;
 }
 
-.other_popular_games {
+.other_popular_games, .other_new_games {
     position: relative;
     height: 110px;
     left: 62px;
 }
 
 .small_game_objects {
-    width: 194px;
-    height:106px;
+    width: 190px;
+    height: 106px;
     float: left;
+    margin-right: 5px;
+    margin-top: 5px;
 }
 
-#left_arrow, #right_arrow, #left_arrow_2, #right_arrow_2 {
+#left_arrow, #right_arrow, #left_arrow_2, #right_arrow_2, #left_arrow_3, #right_arrow_3, #left_arrow_4, #right_arrow_4 {
     width: 35px;
     height: 106px;
 }
 
-.other_popular_games_changed {
+.other_popular_games_changed, .other_new_games_changed {
     display: none;
     position: relative;
     height: 110px;
     left: 62px;
 }
 
-.other_popular_games_changed_hover{
+.other_popular_games_changed_hover, .other_new_games_changed_hover{
     display: block;
 }
 
@@ -140,4 +145,204 @@ h2 {
 .small_game_objects_2 {
     width: 100%;
 }
+
+.auth_container {
+    float: right;
+    display: inline-block;
+    width: 200px;
+    height: 104px;
+    text-align: center;
+}
+
+.login-logout {
+    float: left;
+    width: 200px;
+}
+
+.options {
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    line-height: 16px;
+    padding-top: 30px;
+    -webkit-margin-after: 0em;
+}
+
+.add-container {
+    display: inline-block;
+}
+
+.username {
+    float: left;
+    color: wheat;
+    text-align: center;
+    width: 200px;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.login-logout-a {
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+}
+
+.options-expanded {
+    height: 100px;
+    margin-left: 33px;
+    margin-right: 33px;
+    background-image: url("../images/menu_gradient_3.jpg");
+    background-repeat: no-repeat;
+}
+
+.add-container {
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 0;
+    font-size: 14px;
+}
+
+.mini-menu-container {
+    position: relative;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.mini-menu-inner-container {
+    height: 40px;
+    margin-left: 24.8%;
+    margin-right: 24.8%;
+    background-color: rgba( 62, 126, 167, 0.8);
+
+}
+
+#mini-menu-first-item {
+    border-right: 1px solid rgba( 16, 21, 25, 0.3);
+}
+
+.search {
+    width: 260px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+}
+
+.login-a {
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+.inner-mini-menu-item {
+    line-height: 40px;
+}
+
+.search-by-name {
+    width: 272px;
+    border-radius: 2px 2px 2px 2px;
+    background-color: rgba(96, 135, 159, 0.6);
+    border: 1px inset #3F4155;
+    color: #d9dadd;
+}
+
+.menu-expanded {
+    margin-left: 24.8%;
+    width: 37%;
+}
+
+::placeholder {
+    color: #d9dadd;
+}
+.mini-menu-item {
+    height: 40px;
+    width: 133px;
+    display: inline-block;
+    border-right: 1px solid rgba( 16, 21, 25, 0.3);
+    text-align: center;
+    color: #d9dadd;
+}
+
+.mini-menu-item-expanded {
+    width: 180px;
+    height: 150px;
+    position: absolute;
+    line-height: 30px;
+    display: none;
+}
+
+.mini-menu-item-expanded-hover {
+    width: 180px;
+    height: 150px;
+    display: block;
+    background: linear-gradient( to bottom, #e3eaef 5%, #c7d5e0 95%);
+    position: absolute;
+    color: black;
+    border-top: 2px solid rgba( 16, 21, 25, 0.3);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.mini-menu-item-hover{
+    height: 40px;
+    width: 133px;
+    display: inline-block;
+    border-right: 1px solid rgba( 16, 21, 25, 0.3);
+    text-align: center;
+    color: black;
+    background: linear-gradient( to bottom, #e3eaef 5%, #c7d5e0 95%);
+}
+
+.mini-menu-expanded-inner-item {
+    text-decoration: none;
+    color: black;
+    line-height: 30px;
+    display: block;
+}
+
+#mini-menu-first-item-expanded {
+    height: 95px;
+}
+
+#mini-menu-second-item-expanded {
+    height: 185px;
+}
+
+#mini-menu-third-item-expanded {
+    height: 305px;
+}
+
+#mini-menu-fourth-item-expanded {
+    height: 60px;
+}
+
+.mini-menu-expanded-inner-item-hover {
+    text-decoration: none;
+    color: #d9dadd;
+    background-color: black;
+    line-height: 30px;
+    display: block;
+}
+
+.new_games_area {
+    width: 970px;
+    height: 520px;
+    padding: 5px;
+    margin: auto;
+    background-color: rgba(35, 36, 47, 0.4);
+}
+
+
+
+
+
+
+
 
