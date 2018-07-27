@@ -1,7 +1,9 @@
 package com.gameslike.demo.server.controller;
 
+import com.gameslike.demo.shared.dto.CommentDTO;
 import com.gameslike.demo.shared.dto.GameDTO;
 import com.gameslike.demo.shared.dto.TagDTO;
+import com.gameslike.demo.shared.service.services.CommentService;
 import com.gameslike.demo.shared.service.services.GameService;
 import com.gameslike.demo.shared.service.services.TagService;
 import com.gameslike.demo.shared.service.services.UserService;
@@ -14,6 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,12 +41,14 @@ public class MainController {
     @Autowired
     private TagService tagService;
 
+    @Autowired
+    private CommentService commentService;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public
         ModelAndView mostPopularGame() {
             List<GameDTO> gameDTOS = gameService.findAllAndSortByPopularityRate();
             List<GameDTO> newGameDTOS = gameService.findAllAndSortByReleaseDate();
-
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.addObject("newGameList", newGameDTOS);
             modelAndView.addObject("popularGameList", gameDTOS);
@@ -78,6 +83,11 @@ public class MainController {
         GameDTO gameDTO = gameService.findById(id);
         ModelAndView modelAndView = new ModelAndView();
         List<TagDTO> tags = tagService.findByGameId(id);
+        List<GameDTO> relatedGamesByTags = gameService.findRelatedGamesByTags(tags);
+        List<CommentDTO> commentsList = commentService.findAllByGameId(id);
+
+        modelAndView.addObject("commentsList", commentsList);
+        modelAndView.addObject("relatedGameList", relatedGamesByTags);
         modelAndView.addObject("tagList", tags);
         modelAndView.addObject("gameDTO", gameDTO);
         modelAndView.setViewName("gamepage");
@@ -109,7 +119,6 @@ public class MainController {
         }
         return "redirect:/";
     }
-
 
 
 

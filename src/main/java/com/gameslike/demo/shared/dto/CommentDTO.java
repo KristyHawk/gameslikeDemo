@@ -3,6 +3,7 @@ package com.gameslike.demo.shared.dto;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Table(name = "COMMENTS", schema = "DEV")
 @Entity
 public class CommentDTO {
 
@@ -17,11 +18,46 @@ public class CommentDTO {
     @Column(name = "CREATION_DATE", nullable = false)
     private Timestamp creationDate;
 
+    @Column(name = "POSITIVE")
+    private boolean positive;
+
+    @Column(name = "LIKES")
+    private Integer likes;
+
+    @Column(name = "DISLIKES")
+    private Integer dislikes;
+
     @ManyToOne
+    @JoinColumn(name="user_username")
     private UserDTO user;
 
     @ManyToOne
+    @JoinColumn(name="game_id")
     private GameDTO game;
+
+    public boolean isPositive() {
+        return positive;
+    }
+
+    public void setPositive(boolean positive) {
+        this.positive = positive;
+    }
+
+    public Integer getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Integer likes) {
+        this.likes = likes;
+    }
+
+    public Integer getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(Integer dislikes) {
+        this.dislikes = dislikes;
+    }
 
     public Integer getId() {
         return id;

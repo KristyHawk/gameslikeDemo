@@ -180,17 +180,20 @@ body {
 
 .requirements_container {
     width: 100%;
-    height: 510px;
+    height: 330px;
     background-color: rgb(48, 51, 74);
     position: relative;
 }
 
 .description_div, .requirements {
     width: 970px;
-    height: 350px;
     background-color: rgba(35,36,47,0.7);
     margin: auto;
     text-align: center;
+}
+
+.requirements {
+    height: 300px;
 }
 
 .game_description_header {
@@ -268,8 +271,7 @@ h2 {
     margin-left: 20px;
     margin-right: 20px;
     text-align: left;
-    max-height: 220px;
-    overflow: hidden;
+    padding-bottom: 20px;
 }
 
 .game_detailed_description_expanded {
@@ -322,5 +324,234 @@ h2 {
 .scroll-down-click-hover {
     color: white;
 }
+
+.relative-games-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+}
+.relative-games {
+    margin: auto;
+    width: 970px;
+    height: 250px;
+    background-color: rgba(35,36,47,0.7);
+}
+
+.relative-games-header {
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+
+.relative-games-body {
+    position: relative;
+    height: 50%;
+    margin: 10px 10px 10px 10px;
+}
+
+#arrow-left {
+    float: left;
+    width: 30px;
+    height: 120px;
+    margin-right: 10px;
+}
+
+#arrow-right {
+    display: inline-block;
+    width: 30px;
+    height: 120px;
+    float: right;
+    margin-left: 10px;
+}
+
+.relative-game-image, .relative-game-image-changed {
+    height: 120px;
+    display: inline-block;
+    width: 237px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.relative-game-changed {
+    position: relative;
+    height: 120px;
+    display: none;
+    width: 870px;
+}
+
+.relative-game-unchanged {
+    height: 120px;
+    position: relative;
+    display: inline-block;
+    width: 870px;
+}
+
+.game_objects {
+    width: 100%;
+}
+
+.comments-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    min-height: 1000px;
+}
+
+.inner-review {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.inner-comment-container {
+    width: 970px;
+    margin: auto;
+    font-size: 12px;
+    height: 70px;
+    color: white;
+}
+
+.container-header {
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 300;
+    font-weight: normal;
+    font-size: 12px;
+    color: #c6d4df;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+.user-comment-box {
+    background-color: rgba( 0, 0, 0, 0.2 );
+    margin-bottom: 26px;
+    height: 100%;
+    width: 970px;
+    margin: auto;
+    padding-top: 25px;
+}
+
+.user-info {
+    width: 184px;
+    float: left;
+    padding: 8px;
+    opacity: 0.6;
+}
+
+.user-text {
+    float: left;
+    width: 650px;
+    position: relative;
+}
+
+.content {
+    overflow: hidden;
+    position: relative;
+    margin-right: 8px;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 17px;
+    color: #acb2b8;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.posted {
+    margin: 10px 0 8px;
+    font-size: 10px;
+    font-style: italic;
+    color: #626366;
+}
+
+.view-more {
+    display: block;
+    float: right;
+    margin-right: 15px;
+}
+
+.view-more-a {
+    color: #67c1f5;
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+.control {
+    margin: 8px 0;
+    display: inline-block;
+}
+
+.was-it-useful {
+    display: inline-block;
+    margin-right: 9px;
+    color: #8091a2;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.yes {
+    border-radius: 2px;
+    border: none;
+    padding: 1px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none !important;
+    color: #66c0f4 !important;
+    background: #212c3d;
+}
+
+.inner-user-comment {
+    margin-left: 50px;
+    margin-bottom: 25px;
+    margin-right: 50px;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    border: 2px groove #454654;
+}
+
+.avatar-div {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.user-info-inner-div {
+    font-size: 12px;
+    color: white;
+    display: inline-block;
+}
+
+.user-about {
+    -webkit-margin-after: 0;
+}
+
+.comments-info {
+    float: left;
+    width: 300px;
+    padding-left: 10px;
+}
+
+.comment-types {
+    padding-right: 10px;
+    /* display: inline-block; */
+    float: right;
+}
+
+.comment-type {
+    float: left;
+    padding-right: 30px;
+}
+
+.comment-show {
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
 
 

@@ -73,7 +73,21 @@ $(document).ready(function() {
        $(".scroll-down-click").toggleClass('scroll-down-click-hover')
     });
 
+    $(".arrows").bind("click", function () {
+        if ($(".relative-game-unchanged").is(':visible')) {
+            $(".relative-game-unchanged").hide();
+            $(".relative-game-changed").show();
+        } else {
+            $(".relative-game-changed").hide();
+            $(".relative-game-unchanged").show();
+        }
+    });
 
+    $(".view-more-p").bind("click", function () {
+        $(".content").removeAttr('style');
+        $(".view-more").css("display", "none");
+        return false;
+    });
 
 
 });

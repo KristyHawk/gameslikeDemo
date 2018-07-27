@@ -91,4 +91,11 @@ public class GameServiceImpl implements GameService{
         return sortedList;
     }
 
+    @Override
+    public List<GameDTO> findRelatedGamesByTags(List<TagDTO> tagsList) {
+        String[] tags = tagsList.stream().map(t -> t.getTag()).toArray(size -> new String[size]);
+        long length = 2;
+        return gameRepository.findRelatedGamesByTags(tags, length);
+    }
+
 }

@@ -1,6 +1,5 @@
 package com.gameslike.demo.shared.dto;
 
-import com.gameslike.demo.shared.dto.HTMLDescription.HTMLDescriptionDTO;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class GameDTO {
     @Column(name = "RELEASE_DATE")
     private Date releaseDate;
 
-    @OneToMany(mappedBy = "game")
+    @OneToMany(mappedBy = "game", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CommentDTO> commentsList;
 
     @ManyToMany
@@ -87,16 +86,6 @@ public class GameDTO {
     @OneToOne
     private RecommendedSystemRequirementsLinuxDTO recLinSR;
 
-    @OneToOne
-    private HTMLDescriptionDTO htmlDescription;
-
-    public HTMLDescriptionDTO getHtmlDescription() {
-        return htmlDescription;
-    }
-
-    public void setHtmlDescription(HTMLDescriptionDTO htmlDescription) {
-        this.htmlDescription = htmlDescription;
-    }
 
     public MinimumSystemRequirementsMacDTO getMinMacSR() {
         return minMacSR;

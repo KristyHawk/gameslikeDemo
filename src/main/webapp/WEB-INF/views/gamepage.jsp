@@ -76,7 +76,6 @@
                 <br/>
                 <h2 class="game_description_header">ОПИСАНИЕ ИГРЫ</h2>
                 <div class = "game-detailed-description" id = "gameDetailedDescription">${gameDTO.detailedDescription}</div>
-                <p class = "scroll-down-click">Показать полностью</p>
             </div>
         </div>
         <div class = "br"></div>
@@ -174,7 +173,108 @@
                 </div>
             </div>
         </div>
-        <div class = "comments"></div>
+        <div class = "br"></div>
+        <div class = "relative-games-container">
+            <div class = "relative-games">
+                    <br/>
+                    <h2 class="game_description_header">ПОХОЖИЕ ТОВАРЫ</h2>
+                    <br/>
+                    <div class = "relative-games-body">
+                        <div class = "arrows" id = "arrow-left">
+                            <img src = "${pageContext.servletContext.contextPath}/resources/images/arrowleft.png">
+                        </div>
+                        <div class = "relative-game-unchanged">
+                            <div class = "relative-game-image">
+                                <a href = "gamepage/${relatedGameList[0].id}" id = "${relatedGameList[0].id}" class = "left_element"><img src="${relatedGameList[0].pictureBig}" class = "game_objects"></a>
+                            </div>
+                            <div class = "relative-game-image">
+                                <a href = "gamepage/${relatedGameList[1].id}" id = "${relatedGameList[1].id}" class = "left_element"><img src="${relatedGameList[1].pictureBig}" class = "game_objects"></a>
+                            </div>
+                            <div class = "relative-game-image">
+                                <a href = "gamepage/${relatedGameList[2].id}" id = "${relatedGameList[2].id}" class = "left_element"><img src="${relatedGameList[2].pictureBig}" class = "game_objects"></a>
+                            </div>
+                        </div>
+                        <div class = "arrows" id = "arrow-right">
+                            <img src = "${pageContext.servletContext.contextPath}/resources/images/arrowright.png">
+                        </div>
+                        <div class = "relative-game-changed">
+                            <div class = "relative-game-image-changed">
+                                <a href = "gamepage/${relatedGameList[3].id}" id = "${relatedGameList[3].id}" class = "left_element"><img src="${relatedGameList[3].pictureBig}" class = "game_objects"></a>
+                            </div>
+                            <div class = "relative-game-image-changed">
+                                <a href = "gamepage/${relatedGameList[4].id}" id = "${relatedGameList[4].id}" class = "left_element"><img src="${relatedGameList[4].pictureBig}" class = "game_objects"></a>
+                            </div>
+                            <div class = "relative-game-image-changed">
+                                <a href = "gamepage/${relatedGameList[5].id}" id = "${relatedGameList[5].id}" class = "left_element"><img src="${relatedGameList[5].pictureBig}" class = "game_objects"></a>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+        </div>
+
+        <div class = "comments-container">
+            <div class = "inner-review">
+                <div class = "inner-comment-container">
+                        <div class="comments-info">
+                            <p class = "all-comments">Все обзоры</p>
+                            <p class = "positive-or-negative">В основном ${relation} (всего: )</p>
+                        </div>
+                        <div class = "comment-types">
+                            <div class = "comment-type">
+                                <p class = "comment-type-p">Тип обзора</p>
+                                <select class = "choose-type">
+                                    <option>Все</option>
+                                    <option>Положительные</option>
+                                    <option>Отрицательные</option>
+                                </select>
+                            </div>
+                            <div class = "comment-show">
+                                <p class = "show-class">Отображать: </p>
+                                <select class = "choose-actual">
+                                    <option>Актуальные</option>
+                                    <option>Полезные</option>
+                                </select>
+                            </div>
+                        </div>
+                </div>
+                <div class = "user-comment-box">
+                    <c:forEach items="${commentsList}" var="comment">
+                        <div class = "inner-user-comment">
+                            <div class = "user-info">
+                                <div class = "avatar-div">
+                                    <img src = "#" class = "avatar">
+                                </div>
+                                <div class = "user-info-inner-div">
+                                    <p class = "user-about">Ник: ${comment.user.username}</p>
+                                    <p class = "user-about">Товаров: </p>
+                                    <p class = "user-about">Обзоров: </p>
+                                </div>
+                            </div>
+                            <div class = "user-text">
+                                <div class = "is-recommended"></div>
+                                <div class = "comment-date">
+                                    <p class = "date-of-publishing">Опубликовано:</p>
+                                </div>
+                                <div class = "content" style="max-height: 50px">
+                                    ${comment.content}
+                                </div>
+                                <div class = "posted">
+                                    <div class = "view-more">
+                                        <p class = "view-more-p">Подробнее</p>
+                                    </div>
+                                </div>
+                                <div class = "control">
+                                    <span class = "was-it-useful">Был ли обзор полезен? </span>
+                                    <a href="#" class = "yes">Да</a>
+                                    <a href="#" class = "yes">Нет</a>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

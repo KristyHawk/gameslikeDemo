@@ -12,4 +12,6 @@ import java.util.List;
 @Repository
 public interface GameRepository extends JpaRepository<GameDTO, Integer> {
 
+    @Query("select g from GameDTO g join g.tagsList t where t.tag in (:tags) group by g having count(t) = :tag_count ")
+    List<GameDTO> findRelatedGamesByTags(@Param("tags") String[] tags, @Param("tag_count") Long length);
 }

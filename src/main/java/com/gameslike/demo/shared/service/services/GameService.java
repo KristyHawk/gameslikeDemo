@@ -24,4 +24,6 @@ public interface GameService {
     List<GameDTO> findAllAndSortByPopularityRate();
 
     List<GameDTO> findAllAndSortByReleaseDate();
+
+    List<GameDTO> findRelatedGamesByTags(List<TagDTO> tagsList);
 }

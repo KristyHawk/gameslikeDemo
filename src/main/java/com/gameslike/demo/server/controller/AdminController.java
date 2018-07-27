@@ -1,9 +1,7 @@
 package com.gameslike.demo.server.controller;
 
 import com.gameslike.demo.shared.dto.GameDTO;
-import com.gameslike.demo.shared.dto.HTMLDescription.HTMLDescriptionDTO;
 import com.gameslike.demo.shared.service.services.GameService;
-import com.gameslike.demo.shared.service.services.HTMLDescriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +16,6 @@ public class AdminController {
     @Autowired
     private GameService gameService;
 
-    @Autowired
-    private HTMLDescriptionService htmlDescriptionService;
 
     @RequestMapping(value = "/gamelist", method = RequestMethod.GET)
     public ModelAndView showAdminPage() {
@@ -52,7 +48,5 @@ public class AdminController {
         modelAndView.setViewName("adddescription");
         return modelAndView;
     }
-
-
 
 }

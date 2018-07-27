@@ -41,7 +41,7 @@ public class UserDTO {
     @ManyToMany(mappedBy = "users") //TODO добавить в GameDTO список юзеров, которые владеют этой игрой (как раз так можно определять рейтинг игры)
     private List<GameDTO> gamesList;
 
-    @OneToMany(mappedBy = "user") //TODO добавить в CommentDTO User user, который является владельцем коммента (потом можно сделать страницу со всеми комментами юзера, чтобы он мог переходить по всем постам, где он оставлял комменты)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL) //TODO добавить в CommentDTO User user, который является владельцем коммента (потом можно сделать страницу со всеми комментами юзера, чтобы он мог переходить по всем постам, где он оставлял комменты)
     private List<CommentDTO> commentsList;
 
     @Column(name = "ROLE")
