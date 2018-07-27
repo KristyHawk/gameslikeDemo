@@ -35,6 +35,8 @@
                         <textarea rows="70" cols="125" name="detailedDescription" id="addDescriptionArea" >${result.detailedDescription}</textarea>
                     </div>
                     <br/>
+                    <input type="hidden" id="csrfToken" value="${_csrf.token}"/>
+                    <input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
                 </form>
             </div>
         </div>

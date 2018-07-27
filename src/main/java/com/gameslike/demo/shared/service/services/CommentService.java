@@ -13,13 +13,13 @@ public interface CommentService {
 
     List<GameDTO> findAll();
 
-    void save(GameDTO gameDTO);
+    void save(CommentDTO comment);
 
     GameDTO findByName(String name);
 
     void update(GameDTO gameDTO);
 
-    void add(GameDTO gameDTO);
+    void add(CommentDTO comment);
 
     List<CommentDTO> findAllByGameId(Integer id);
 }

@@ -60,7 +60,7 @@ body {
     height: 520px;
     padding: 5px;
     margin: auto;
-    background-color: rgba(35, 36, 47, 0.4);
+    background-color: rgba( 0, 0, 0, 0.2 );
 }
 
 .left_element {
@@ -336,7 +336,7 @@ h2 {
     height: 520px;
     padding: 5px;
     margin: auto;
-    background-color: rgba(35, 36, 47, 0.4);
+    background-color: rgba( 0, 0, 0, 0.2 );
 }
 
 

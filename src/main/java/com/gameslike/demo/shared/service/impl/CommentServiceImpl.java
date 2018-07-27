@@ -32,8 +32,8 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public void save(GameDTO gameDTO) {
-
+    public void save(CommentDTO comment) {
+        commentRepository.save(comment);
     }
 
     @Override
@@ -47,8 +47,8 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public void add(GameDTO gameDTO) {
-
+    public void add(CommentDTO comment) {
+        commentRepository.save(comment);
     }
 
     @Override

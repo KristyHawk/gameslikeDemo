@@ -1,5 +1,7 @@
 body {
-    background-color: rgb(48, 51, 74);
+    background-image: url("../images/background_main.jpg");
+    font-family: "Motiva Sans", Sans-serif;
+    margin: 0;
 }
 
 .container {
@@ -8,7 +10,6 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    font-family: "Motiva Sans", Sans-serif;
 }
 
 .global_header {
@@ -55,7 +56,6 @@ body {
 .game_container {
     width: 100%;
     height: 600px;
-    background-image: url("../images/witcherBack.jpg");
     background-size: cover;
 
 }
@@ -66,7 +66,7 @@ body {
     padding: 5px;
     margin: auto;
     color: white;
-    background-color: rgba(35,36,47,0.7);
+    background-color: rgba( 0, 0, 0, 0.2 );
 }
 
 .game_screens_actions {
@@ -181,13 +181,12 @@ body {
 .requirements_container {
     width: 100%;
     height: 330px;
-    background-color: rgb(48, 51, 74);
     position: relative;
 }
 
 .description_div, .requirements {
     width: 970px;
-    background-color: rgba(35,36,47,0.7);
+    background-color: rgba( 0, 0, 0, 0.2 );
     margin: auto;
     text-align: center;
 }
@@ -248,12 +247,12 @@ strong {
 }
 
 .os_container {
-    background: -webkit-linear-gradient( left, rgba(48,51,74,0.7) 0%,rgba(48,51,72,0.1) 100%);
+    background: -webkit-linear-gradient( left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 100%);
     height: 22px;
 }
 
 h2 {
-    background: -webkit-linear-gradient( left, rgba(48,51,74,0.7) 0%,rgba(48,51,72,0.1) 100%);
+    background: -webkit-linear-gradient( left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 100%);
 }
 
 .win_container {
@@ -284,14 +283,13 @@ h2 {
 }
 
 .br {
-    background-color: rgb(48, 51, 74);
+
     height: 30px;
     width: 100%;
 }
 
 .description_div_container {
     width: 100%;
-    background-color: rgb(48, 51, 74);
     position: relative;
 }
 
@@ -334,7 +332,7 @@ h2 {
     margin: auto;
     width: 970px;
     height: 250px;
-    background-color: rgba(35,36,47,0.7);
+    background-color: rgba( 0, 0, 0, 0.2 );
 }
 
 .relative-games-header {
@@ -546,7 +544,54 @@ h2 {
     display: inline-block;
 }
 
+.add-comment-window {
+    background-color: rgba( 0, 0, 0, 0.2 );
+    margin-bottom: 26px;
+    width: 970px;
+    margin: auto;
+    color: white;
+    padding-top: 3px;
+}
 
+.add-review {
+    font-size: 22px;
+    margin-left: 25px;
+    -webkit-margin-after: 0;
+}
+
+.would-you-recommend {
+    margin-left: 25px;
+    float: left;
+    margin-right: 20px;
+    font-size: 12px;
+    padding-top: 4px;
+}
+
+.radio-yes, .radio-no {
+    display: inline-block;
+    height: 50px;
+    font-size: 12px;
+}
+
+.review-content {
+    padding: 0 20px 20px 20px;
+}
+
+.review-content-area {
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px inset #3F4155;
+    color: grey;
+}
+
+.button-submit {
+    float: right;
+    margin-right: 20px;
+}
+
+.content-submit-button {
+    height: 35px;
+}
 
 
 

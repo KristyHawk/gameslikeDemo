@@ -18,15 +18,16 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
+import java.security.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -85,13 +86,26 @@ public class MainController {
         List<TagDTO> tags = tagService.findByGameId(id);
         List<GameDTO> relatedGamesByTags = gameService.findRelatedGamesByTags(tags);
         List<CommentDTO> commentsList = commentService.findAllByGameId(id);
+        CommentDTO comment = new CommentDTO();
 
+        modelAndView.addObject("comment", comment);
         modelAndView.addObject("commentsList", commentsList);
         modelAndView.addObject("relatedGameList", relatedGamesByTags);
         modelAndView.addObject("tagList", tags);
         modelAndView.addObject("gameDTO", gameDTO);
         modelAndView.setViewName("gamepage");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "gamepage/{id}/addComment", method = RequestMethod.POST)
+    @ResponseBody
+    public void addComment(@PathVariable("id") Integer id, @ModelAttribute CommentDTO comment, Principal principal) {
+        CommentDTO commentSave = comment;
+        commentSave.setGame(gameService.findById(id));
+        commentSave.setUser(userService.findByUsername(principal.getName()));
+        commentSave.setCreationDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        commentSave.setPositive(comment.isPositive());
+        commentService.add(commentSave);
     }
 
     @RequestMapping(value = "home", method = RequestMethod.GET)

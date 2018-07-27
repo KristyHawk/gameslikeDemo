@@ -89,5 +89,16 @@ $(document).ready(function() {
         return false;
     });
 
+    var url = document.location.href;
+    var id = url.split("/")[4];
+    $("#submitCommentButton").bind("click", function () {
+        var form = $("#addReviewForm").serialize();
 
+        $.ajax({
+            url: id + "/addComment",
+            type: "POST",
+            data: form,
+            dataType: "json"
+        });
+    });
 });

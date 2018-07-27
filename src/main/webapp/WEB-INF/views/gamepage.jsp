@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -215,6 +216,42 @@
 
         <div class = "comments-container">
             <div class = "inner-review">
+                <sec:authorize access="isAuthenticated()">
+                    <div class = "add-comment-container">
+                        <div class = "add-comment-window">
+                            <div class = "add-comment-header">
+                                <p class = "add-review">Добавить обзор</p>
+                            </div>
+                            <div class = "add-comment-body">
+                                <form id = "addReviewForm" role="form">
+                                    <div class = "common-info">
+                                        <div class = "would-you-recommend">
+                                            <p>Рекомендуете ли Вы эту игру?</p>
+                                        </div>
+                                        <div class = "radio-yes">
+                                            <p><input name="positive" type="radio" value="true" checked="checked">Да</p>
+                                        </div>
+                                        <div class = "radio-no">
+                                            <p><input name="positive" type="radio" value="false">Нет</p>
+                                        </div>
+                                    </div>
+                                    <div class = "review-content">
+                                        <textarea rows="10" cols="130" name="content" class = "review-content-area"></textarea>
+                                    </div>
+                                    <div class = "content-submit-button">
+                                        <div class = "button-submit">
+                                            <button type = "submit" id = "submitCommentButton">Опубликовать</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </sec:authorize>
+                <sec:authorize access="isAnonymous()">
+                    <div></div>
+                </sec:authorize>
+
                 <div class = "inner-comment-container">
                         <div class="comments-info">
                             <p class = "all-comments">Все обзоры</p>
