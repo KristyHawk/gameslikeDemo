@@ -13,20 +13,18 @@ $(document).ready(function() {
     $('#save-description-button').bind("click", function () {
 
         var form = $("#addDescriptionForm").serialize();
-        var desc = $("#addDescriptionArea").val();
-        var token = $('#csrfToken').val();
-        var header = $('#csrfHeader').val();
-
 
         $.ajax({
             url: id + "/saveDescription/",
             type: "POST",
-            data: {"desc" : desc},
+            data: form,
             dataType: "json",
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Accept", "application/json");
-                xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.setRequestHeader(header, token);
+            success: function (result) {
+                alert(result);
+            },
+            error: function (result) {
+               alert(result);
+                alert('1');
             }
         });
         var content = $("#addDescriptionArea").val();

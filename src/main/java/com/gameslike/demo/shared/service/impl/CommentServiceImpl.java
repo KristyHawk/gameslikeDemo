@@ -22,12 +22,12 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public GameDTO findById(Integer id) {
-        return null;
+    public CommentDTO findById(Integer id) {
+        return commentRepository.findOne(id);
     }
 
     @Override
-    public List<GameDTO> findAll() {
+    public List<CommentDTO> findAll() {
         return null;
     }
 
@@ -37,12 +37,12 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public GameDTO findByName(String name) {
+    public CommentDTO findByName(String name) {
         return null;
     }
 
     @Override
-    public void update(GameDTO gameDTO) {
+    public void update(CommentDTO commentDTO) {
 
     }
 

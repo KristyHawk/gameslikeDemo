@@ -1,5 +1,7 @@
 package com.gameslike.demo.server.controller;
 
+import com.gameslike.demo.server.form.CommentForm;
+import com.gameslike.demo.server.form.ResultWEB;
 import com.gameslike.demo.shared.dto.CommentDTO;
 import com.gameslike.demo.shared.dto.GameDTO;
 import com.gameslike.demo.shared.dto.TagDTO;
@@ -8,26 +10,19 @@ import com.gameslike.demo.shared.service.services.GameService;
 import com.gameslike.demo.shared.service.services.TagService;
 import com.gameslike.demo.shared.service.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
-import java.security.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -86,7 +81,7 @@ public class MainController {
         List<TagDTO> tags = tagService.findByGameId(id);
         List<GameDTO> relatedGamesByTags = gameService.findRelatedGamesByTags(tags);
         List<CommentDTO> commentsList = commentService.findAllByGameId(id);
-        CommentDTO comment = new CommentDTO();
+        CommentForm comment = new CommentForm();
 
         modelAndView.addObject("comment", comment);
         modelAndView.addObject("commentsList", commentsList);
@@ -97,15 +92,18 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "gamepage/{id}/addComment", method = RequestMethod.POST)
+    @RequestMapping(value = "gamepage/{id}/addComment", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public void addComment(@PathVariable("id") Integer id, @ModelAttribute CommentDTO comment, Principal principal) {
-        CommentDTO commentSave = comment;
-        commentSave.setGame(gameService.findById(id));
-        commentSave.setUser(userService.findByUsername(principal.getName()));
-        commentSave.setCreationDate(new java.sql.Timestamp(System.currentTimeMillis()));
-        commentSave.setPositive(comment.isPositive());
-        commentService.add(commentSave);
+    public void addComment(@PathVariable("id") Integer id, @RequestBody CommentForm comment, Principal principal) {
+
+        CommentDTO dto = new CommentDTO();
+        dto.setGame(gameService.findById(id));
+        dto.setUser(userService.findByUsername(principal.getName()));
+        dto.setCreationDate(new java.sql.Timestamp(System.currentTimeMillis()));
+        dto.setPositive(comment.isPositive());
+        dto.setContent(comment.getContent());
+        commentService.add(dto);
+
     }
 
     @RequestMapping(value = "home", method = RequestMethod.GET)

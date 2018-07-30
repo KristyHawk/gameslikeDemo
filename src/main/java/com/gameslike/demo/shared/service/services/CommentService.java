@@ -9,15 +9,15 @@ public interface CommentService {
 
     void delete(Integer id);
 
-    GameDTO findById(Integer id);
+    CommentDTO findById(Integer id);
 
-    List<GameDTO> findAll();
+    List<CommentDTO> findAll();
 
     void save(CommentDTO comment);
 
-    GameDTO findByName(String name);
+    CommentDTO findByName(String name);
 
-    void update(GameDTO gameDTO);
+    void update(CommentDTO commentDTO);
 
     void add(CommentDTO comment);
 

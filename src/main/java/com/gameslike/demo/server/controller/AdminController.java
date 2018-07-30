@@ -38,6 +38,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "addDescription/{id}/saveDescription", method = RequestMethod.POST)
+    @ResponseBody
     public ModelAndView saveDescription(@PathVariable("id") Integer gameId, @ModelAttribute GameDTO dto) {
         GameDTO current = gameService.findById(gameId);
         current.setDetailedDescription(dto.getDetailedDescription());

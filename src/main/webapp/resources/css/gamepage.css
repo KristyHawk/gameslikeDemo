@@ -593,6 +593,76 @@ h2 {
     height: 35px;
 }
 
+.auth_container {
+    float: right;
+    display: inline-block;
+    width: 200px;
+    height: 104px;
+    text-align: center;
+}
+
+.login-logout {
+    float: left;
+    width: 200px;
+}
+
+.options {
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    line-height: 16px;
+    padding-top: 30px;
+    -webkit-margin-after: 0em;
+}
+
+.add-container {
+    display: inline-block;
+}
+
+.username {
+    float: left;
+    color: wheat;
+    text-align: center;
+    width: 200px;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.login-logout-a {
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+}
+
+.options-expanded {
+    height: 100px;
+    margin-left: 33px;
+    margin-right: 33px;
+    background-image: url("../images/menu_gradient_3.jpg");
+    background-repeat: no-repeat;
+}
+
+.add-container {
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 0;
+    font-size: 14px;
+}
+
+.login-a {
+    color: #b8b6b4;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+    margin-top: 40px;
+}
 
 
 

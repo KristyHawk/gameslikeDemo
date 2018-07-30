@@ -26,9 +26,41 @@
                     <a href = "shop" class = "menu_objects">Магазин</a>
                     <a href = "library" class = "menu_objects">Библиотека</a>
                     <a href = "wishList" class = "menu_objects">Список желаемого</a>
-                    <a href = "admin" class = "admin_menu">Админ</a>
                 </div>
-                <div class = "login_logout"></div>
+                <div class = "auth_container">
+                    <div class = "login-logout">
+                        <sec:authorize access="isAnonymous()">
+                            <p style="height: 15px"></p>
+                        </sec:authorize>
+                        <sec:authorize access="isAnonymous()">
+                            <div class = "login_a">
+                                <a href="${pageContext.servletContext.contextPath}/login" id = "login" class = "login-a">Войти</a>
+                            </div>
+                        </sec:authorize>
+                        <sec:authorize access="isAuthenticated()">
+                            <p class = 'username'>Вы вошли как: <sec:authentication property="name"/> </p>
+                        </sec:authorize>
+                        <sec:authorize access="isAuthenticated()">
+                            <p class = "options" id = "options">Настройки</p>
+                        </sec:authorize>
+
+                        <sec:authorize access="isAuthenticated()">
+                            <div class = "options-expanded" id = "optionsExpanded" style="visibility: hidden;">
+                                <p class = "add-container">
+                                    <sec:authorize access="hasRole('ADMIN')">
+                                        <a href = "<c:url value="/admin/gamelist"/>" class = "admin_menu login-logout-a">Админ</a>
+                                    </sec:authorize>
+                                </p>
+                                <p class = "add-container">
+                                    <a href="<c:url value="/options/userOptions"/>" class = login-logout-a>Пользователь</a>
+                                </p>
+                                <p class = "add-container">
+                                    <a href="<c:url value="/logout"/>" class = "login-logout-a">Выйти</a>
+                                </p>
+                            </div>
+                        </sec:authorize>
+                    </div>
+                </div>
             </div>
         </div>
         <div class = "game_container">
@@ -229,10 +261,10 @@
                                             <p>Рекомендуете ли Вы эту игру?</p>
                                         </div>
                                         <div class = "radio-yes">
-                                            <p><input name="positive" type="radio" value="true" checked="checked">Да</p>
+                                            <p><input name="positive" type="radio" value="true" checked="checked" class = "message_pri">Да</p>
                                         </div>
                                         <div class = "radio-no">
-                                            <p><input name="positive" type="radio" value="false">Нет</p>
+                                            <p><input name="positive" type="radio" value="false" class = "message_pri">Нет</p>
                                         </div>
                                     </div>
                                     <div class = "review-content">
@@ -275,7 +307,7 @@
                             </div>
                         </div>
                 </div>
-                <div class = "user-comment-box">
+                <div class = "user-comment-box" id = "userCommentBox">
                     <c:forEach items="${commentsList}" var="comment">
                         <div class = "inner-user-comment">
                             <div class = "user-info">

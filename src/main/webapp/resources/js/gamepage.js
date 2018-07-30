@@ -89,16 +89,50 @@ $(document).ready(function() {
         return false;
     });
 
+
+    $('#options').hover(function () {
+            $('#optionsExpanded').css("visibility", "visible");
+        },
+        function() {
+            $('#optionsExpanded').css("visibility", "hidden");
+        });
+
+    $('#optionsExpanded').hover(function () {
+        $('#optionsExpanded').css("visibility", "visible");
+    }, function() {
+        $('#optionsExpanded').css("visibility", "hidden");
+    });
+
     var url = document.location.href;
     var id = url.split("/")[4];
-    $("#submitCommentButton").bind("click", function () {
-        var form = $("#addReviewForm").serialize();
+
+    $("#submitCommentButton").bind("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var positive = $(".message_pri:checked").val();
+        var content = $(".review-content-area").val();
+        var object   = {"positive":positive,"content":content}
 
         $.ajax({
             url: id + "/addComment",
             type: "POST",
-            data: form,
-            dataType: "json"
+            data: JSON.stringify(object),
+            dataType: "html",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function(){
+                alert("success")
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR);
+                alert(textStatus);
+                alert(errorThrown);
+            }
+
         });
     });
 });
+
