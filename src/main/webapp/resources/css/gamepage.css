@@ -192,7 +192,7 @@ body {
 }
 
 .requirements {
-    height: 300px;
+    height: 330px;
 }
 
 .game_description_header {
@@ -326,7 +326,7 @@ h2 {
 .relative-games-container {
     position: relative;
     width: 100%;
-    height: 320px;
+    height: 280px;
 }
 .relative-games {
     margin: auto;
@@ -366,19 +366,19 @@ h2 {
     height: 120px;
     display: inline-block;
     width: 237px;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 25px;
+    margin-left: 25px;
 }
 
 .relative-game-changed {
     position: relative;
-    height: 120px;
+    height: 150px;
     display: none;
     width: 870px;
 }
 
 .relative-game-unchanged {
-    height: 120px;
+    height: 150px;
     position: relative;
     display: inline-block;
     width: 870px;
@@ -664,6 +664,62 @@ h2 {
     margin-top: 40px;
 }
 
+.highlighted-div {
+    border-color: white;
+}
+
+.date-of-publishing {
+    font-size: 11px;
+}
+
+.is-recommended-img {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 7px;
+}
+
+.is-recommended-thumb-up {
+    width: 100%;
+    background-image: url("../images/thumbupsmall.png");
+}
+
+.is-recommended-thumb-down {
+    width: 100%;
+    background-image: url("../images/thumbdownsmall.png");
+}
+
+.is-rec-inner, .is-rec-inner-new {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.comment-date {
+    display: inline-block;
+}
+
+.leave-comment-inner {
+    text-align: center;
+    height: 100%;
+    margin: 0 40% 0 40%;
+    background-color: rgba( 0, 0, 0, 0.2 );
+    color: #acb2b8;
+}
+
+.leave-comment {
+    height: 5%;
+}
+
+#leave-comment-inner-p {
+    padding: 13px;
+}
+
+.enter-to-comment {
+    text-decoration: none;
+    color: white;
+}
 
 
 

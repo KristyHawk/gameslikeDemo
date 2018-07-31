@@ -9,11 +9,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authentication var="principal" property="principal" />
+
 <html>
 <head>
     <meta charset="utf-8">
     <title>Game</title>
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/gamepage.css" type = "text/css">
+    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/headerMenu.css" type = "text/css">
     <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src = "${pageContext.servletContext.contextPath}/resources/js/gamepage.js"></script>
 </head>
@@ -261,10 +264,10 @@
                                             <p>Рекомендуете ли Вы эту игру?</p>
                                         </div>
                                         <div class = "radio-yes">
-                                            <p><input name="positive" type="radio" value="true" checked="checked" class = "message_pri">Да</p>
+                                            <p><input name="recommended" type="radio" value="true" checked="checked" class = "message_pri">Да</p>
                                         </div>
                                         <div class = "radio-no">
-                                            <p><input name="positive" type="radio" value="false" class = "message_pri">Нет</p>
+                                            <p><input name="recommended" type="radio" value="false" class = "message_pri">Нет</p>
                                         </div>
                                     </div>
                                     <div class = "review-content">
@@ -281,7 +284,12 @@
                     </div>
                 </sec:authorize>
                 <sec:authorize access="isAnonymous()">
-                    <div></div>
+                    <div class = "leave-comment">
+                        <div class = "leave-comment-inner">
+                            <p id = "leave-comment-inner-p">
+                                <a href = "${pageContext.servletContext.contextPath}/login" class = "enter-to-comment">Войдите</a>, чтобы оставить комментарий</p>
+                        </div>
+                    </div>
                 </sec:authorize>
 
                 <div class = "inner-comment-container">
@@ -308,6 +316,40 @@
                         </div>
                 </div>
                 <div class = "user-comment-box" id = "userCommentBox">
+                    <div class = "inner-user-comment" id = "new-comment-container">
+                        <div class = "user-info">
+                            <div class = "avatar-div">
+                                <img src = "#" class = "avatar">
+                            </div>
+                            <div class = "user-info-inner-div">
+                                <sec:authorize access="isAuthenticated()">
+                                <p class = "user-about">Ник: ${principal.username}</p>
+                                </sec:authorize>
+                                <p class = "user-about">Товаров: </p>
+                                <p class = "user-about">Обзоров: </p>
+                            </div>
+                        </div>
+                        <div class = "user-text">
+                            <div class = "is-recommended-img">
+                                <div class = "is-rec-inner-new"></div>
+                            </div>
+                            <div class = "comment-date">
+                                <p class = "date-of-publishing" id = "new-date-of-publishing">Опубликовано: ${comment.time}</p>
+                            </div>
+                            <div class = "content" id = "new-comment" style="max-height: 50px">
+                            </div>
+                            <div class = "posted">
+                                <div class = "view-more">
+                                    <p class = "view-more-p" style="display: none">Подробнее</p>
+                                </div>
+                            </div>
+                            <div class = "control">
+                                <span class = "was-it-useful">Был ли обзор полезен? </span>
+                                <a href="#" class = "yes">Да</a>
+                                <a href="#" class = "yes">Нет</a>
+                            </div>
+                        </div>
+                    </div>
                     <c:forEach items="${commentsList}" var="comment">
                         <div class = "inner-user-comment">
                             <div class = "user-info">
@@ -321,9 +363,11 @@
                                 </div>
                             </div>
                             <div class = "user-text">
-                                <div class = "is-recommended"></div>
+                                <div class = "is-recommended-img">
+                                    <div class = "is-rec-inner">${comment.positive}</div>
+                                </div>
                                 <div class = "comment-date">
-                                    <p class = "date-of-publishing">Опубликовано:</p>
+                                    <p class = "date-of-publishing">Опубликовано: <fmt:formatDate value="${comment.creationDate}" pattern="dd/MM/yyyy HH:mm"/></p>
                                 </div>
                                 <div class = "content" style="max-height: 50px">
                                     ${comment.content}

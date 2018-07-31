@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <title>GamesLike</title>
     <link rel="stylesheet" href="resources/css/index.css" type = "text/css">
+    <link rel="stylesheet" href="resources/css/headerMenu.css" type = "text/css">
     <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src = "resources/js/index.js"></script>
 </head>

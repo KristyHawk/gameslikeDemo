@@ -5,6 +5,7 @@ import com.gameslike.demo.server.form.ResultWEB;
 import com.gameslike.demo.shared.dto.CommentDTO;
 import com.gameslike.demo.shared.dto.GameDTO;
 import com.gameslike.demo.shared.dto.TagDTO;
+import com.gameslike.demo.shared.dto.UserDTO;
 import com.gameslike.demo.shared.service.services.CommentService;
 import com.gameslike.demo.shared.service.services.GameService;
 import com.gameslike.demo.shared.service.services.TagService;
@@ -92,18 +93,20 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "gamepage/{id}/addComment", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "gamepage/{id}/addComment", method = RequestMethod.POST, consumes = "application/json; charset=utf-8", produces = "application/json; charset=utf-8")
     @ResponseBody
-    public void addComment(@PathVariable("id") Integer id, @RequestBody CommentForm comment, Principal principal) {
+    public CommentForm addComment(@PathVariable("id") Integer id, @RequestBody CommentForm comment, Principal principal) {
 
         CommentDTO dto = new CommentDTO();
         dto.setGame(gameService.findById(id));
         dto.setUser(userService.findByUsername(principal.getName()));
         dto.setCreationDate(new java.sql.Timestamp(System.currentTimeMillis()));
-        dto.setPositive(comment.isPositive());
+        dto.setPositive(comment.isRecommended());
         dto.setContent(comment.getContent());
+        comment.setTime(new java.sql.Timestamp(System.currentTimeMillis()));
         commentService.add(dto);
 
+        return comment;
     }
 
     @RequestMapping(value = "home", method = RequestMethod.GET)
@@ -130,6 +133,14 @@ public class MainController {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "registration", method = RequestMethod.GET)
+    public ModelAndView registration() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("newuser", new UserDTO());
+        modelAndView.setViewName("registration");
+        return modelAndView;
     }
 
 

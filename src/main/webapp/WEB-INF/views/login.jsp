@@ -14,6 +14,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="resources/css/login.css" type = "text/css">
     <link rel="stylesheet" href="resources/css/index.css" type = "text/css">
+    <link rel="stylesheet" href="resources/css/headerMenu.css" type = "text/css">
     <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src = "resources/js/login.js"></script>
 </head>
@@ -93,7 +94,7 @@
                     </p>
                 </div>
                 <div class = "registration-div">
-                    <a href = "/register/newAccount" class = "new-account"><span class = "registration-span">Регистрация</span></a>
+                    <a href = "/registration" class = "new-account"><span class = "registration-span">Регистрация</span></a>
                 </div>
             </div>
             <div class = "description_window">

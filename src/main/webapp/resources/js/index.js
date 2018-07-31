@@ -61,7 +61,6 @@ $(document).ready(function(){
     });
 
 
-
     $('#options').hover(function () {
         $('#optionsExpanded').css("visibility", "visible");
     },
@@ -102,6 +101,13 @@ $(document).ready(function(){
     }, function () {
         $(this).removeClass("mini-menu-expanded-inner-item-hover") ;
         $(this).addClass("mini-menu-expanded-inner-item");
+    });
+
+    $('.login-a').hover(function () {
+            $(this).css("color", "white");
+        },
+        function () {
+            $(this).css("color", "#b8b6b4");
     });
 
 });
